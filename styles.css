@@ -61,7 +61,7 @@ h1 {
 .music-list a {
   display: inline-block;
   margin: 5px;
-  padding: 5px 10px;
+  padding: 5px 9px;
   background-color: #fc0;
   color: #000;
   text-decoration: none;
@@ -72,7 +72,7 @@ h1 {
 /* New CSS for smaller screens */
 @media (max-width: 768px) {
   h1 {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .instruments {
     flex-wrap: wrap;
