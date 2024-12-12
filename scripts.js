@@ -17,4 +17,15 @@ musicItems.forEach((item) => {
     const instruments = item.querySelector(".instruments");
     instruments.style.display = "block";
   });
+  musicListItems.forEach((listItem) => {
+    const musicTitle = listItem.querySelector("h2, a"); // Seleciona o título da música
+    const instruments = listItem.querySelector(".instruments");
+
+    // Verifica se o dispositivo é móvel (ajuste a largura conforme necessário)
+    if (window.innerWidth <= 768) {
+      musicTitle.addEventListener("click", () => {
+        instruments.classList.toggle("visible");
+      });
+    }
+  });
 });
