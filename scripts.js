@@ -1,0 +1,1 @@
+function toggleVisibility(a){const b=document.getElementById(a);b.style.display="none"===b.style.display?"block":"none"}
