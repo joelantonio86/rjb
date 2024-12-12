@@ -1,1 +1,1 @@
-function toggleVisibility(a){const b=document.getElementById(a);b.style.display="none"===b.style.display?"block":"none"}
+const musicListItems=document.querySelectorAll(".music-list li");musicListItems.forEach(a=>{a.addEventListener("mouseover",()=>{const b=a.querySelector(".instruments");b.style.display="block"}),a.addEventListener("mouseout",()=>{const b=a.querySelector(".instruments");b.style.display="none"})});
