@@ -71,8 +71,4 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-between;
   }
-
-  .instruments a {
-    /* Inherit styles from the general rule, potentially removing redundant properties */
-  }
 }
