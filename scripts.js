@@ -1,31 +1,42 @@
-const musicListItems = document.querySelectorAll(".music-list li");
-musicListItems.forEach((a) => {
-  a.addEventListener("mouseover", () => {
-    const b = a.querySelector(".instruments");
-    b.style.display = "block";
-  });
-  a.addEventListener("mouseout", () => {
-    const b = a.querySelector(".instruments");
-    b.style.display = "none";
-  });
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const musicItems = document.querySelectorAll(".music-list li");
 
-const musicItems = document.querySelectorAll(".music-list li");
+  // Detecta se o dispositivo é móvel
+  const isMobile = () => window.innerWidth <= 768;
 
-musicItems.forEach((item) => {
-  item.addEventListener("click", () => {
+  musicItems.forEach((item) => {
     const instruments = item.querySelector(".instruments");
-    instruments.style.display = "block";
-  });
-  musicListItems.forEach((listItem) => {
-    const musicTitle = listItem.querySelector("h2, a"); // Seleciona o título da música
-    const instruments = listItem.querySelector(".instruments");
+    const title = item.querySelector("h2, a");
 
-    // Verifica se o dispositivo é móvel (ajuste a largura conforme necessário)
-    if (window.innerWidth <= 768) {
-      musicTitle.addEventListener("click", () => {
+    // Adiciona o comportamento de clique no título para dispositivos móveis
+    if (isMobile() && title) {
+      title.addEventListener("click", (e) => {
+        e.stopPropagation(); // Previne comportamento inesperado
+
+        // Alterna a visibilidade do instrumento atual
         instruments.classList.toggle("visible");
       });
     }
+
+    // Adiciona o comportamento de clique no item para desktop
+    item.addEventListener("click", () => {
+      // Fecha outros instrumentos antes de abrir/minimizar o atual
+      musicItems.forEach((otherItem) => {
+        const otherInstruments = otherItem.querySelector(".instruments");
+        if (otherInstruments && otherInstruments !== instruments) {
+          otherInstruments.classList.remove("visible");
+        }
+      });
+
+      // Alterna a visibilidade do instrumento atual
+      instruments.classList.toggle("visible");
+    });
+  });
+});
+document.querySelectorAll(".toggle-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    const instruments = button.nextElementSibling;
+    instruments.classList.toggle("visible");
+    button.textContent = instruments.classList.contains("visible") ? "⇧" : "↕";
   });
 });

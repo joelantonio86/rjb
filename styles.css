@@ -10,6 +10,7 @@ body {
   width: 80%;
   margin: 20px auto;
   text-align: center;
+  overflow: visible;
 }
 
 h1 {
@@ -21,6 +22,8 @@ h1 {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  max-height: none;
+  overflow: visible;
 }
 
 .music-list li {
@@ -43,11 +46,15 @@ h1 {
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
-  transition: display 0.2s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+  transition: display 0.2s ease-in-out, max-height 0.4s ease, padding 0.4s ease;
 }
 
 .instruments.visible {
   display: block;
+  max-height: 500px; /* Ajuste conforme necessário */
+  padding: 10px 0;
 }
 
 .music-list li:hover .instruments {
@@ -69,26 +76,59 @@ h1 {
   transition: background-color 0.2s ease-in-out;
 }
 
+.music-list li {
+  position: relative;
+  overflow: hidden;
+}
+
+.music-list .toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fc0;
+  color: #000;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+}
+/* Removed duplicate .instruments styles */
+
+.instruments.visible {
+  max-height: 500px; /* Ajuste conforme necessário */
+  padding: 10px 0;
+}
+
 /* New CSS for smaller screens */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 1rem;
+  .container {
+    width: 95%;
   }
-  .instruments {
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+  .music-list li {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .music-list .toggle-btn {
+    font-size: 12px;
+    padding: 3px 7px;
   }
 }
 
-@media (max-width: 667px) {
+@media (max-width: 480px) {
   h1 {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
-  .instruments {
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+  .music-list li {
+    padding: 8px;
   }
-  .music-list li:hover {
-    padding: 5px 5px;
+
+  .music-list .toggle-btn {
+    font-size: 10px;
+    padding: 2px 5px;
   }
 }
