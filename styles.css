@@ -61,7 +61,7 @@ h1 {
 .music-list a {
   display: inline-block;
   margin: 5px;
-  padding: 5px 9px;
+  padding: 5px 5px;
   background-color: #fc0;
   color: #000;
   text-decoration: none;
