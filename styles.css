@@ -72,10 +72,23 @@ h1 {
 /* New CSS for smaller screens */
 @media (max-width: 768px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .instruments {
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 667px) {
+  h1 {
+    font-size: 1rem;
+  }
+  .instruments {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .music-list li:hover {
+    padding: 5px 0px;
   }
 }
