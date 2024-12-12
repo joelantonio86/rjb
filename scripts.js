@@ -40,3 +40,30 @@ document.querySelectorAll(".toggle-btn").forEach((button) => {
     button.textContent = instruments.classList.contains("visible") ? "⇧" : "↕";
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  // Seleciona todos os links (<a>) dentro da página
+  const links = document.querySelectorAll("a");
+
+  links.forEach((link) => {
+    // Verifica se o link termina com "PDF" (case-insensitive)
+    if (link.textContent.trim().toUpperCase().endsWith("PDF")) {
+      // Altera o fundo para um tom de azul
+      link.style.backgroundColor = "#1E90FF"; // Azul claro
+      link.style.color = "#FFF"; // Opcional: texto branco para contraste
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButtons = document.querySelectorAll(".toggle-btn");
+
+  toggleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-target");
+      const targetElement = document.getElementById(targetId);
+
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", !isExpanded);
+      targetElement.classList.toggle("hidden", isExpanded);
+    });
+  });
+});
