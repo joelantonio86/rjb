@@ -47,7 +47,7 @@ h1 {
   align-items: center;
   margin-top: 10px;
   max-height: 0;
-  overflow: hidden;
+  overflow-y: scroll;
   transition: display 0.2s ease-in-out, max-height 0.4s ease, padding 0.4s ease;
 }
 

@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Verifica se o link termina com "PDF" (case-insensitive)
     if (link.textContent.trim().toUpperCase().endsWith("PDF")) {
       // Altera o fundo para um tom de azul
-      link.style.backgroundColor = "#1E90FF"; // Azul claro
+      link.style.backgroundColor = "#4169E1"; // Azul claro
       link.style.color = "#FFF"; // Opcional: texto branco para contraste
     }
   });
